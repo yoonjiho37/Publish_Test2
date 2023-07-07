@@ -66,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				2773732B2A582258002C86BD /* Test_APPApp.swift */,
-				2773732D2A582258002C86BD /* ContentView.swift */,
 				277373482A5822DD002C86BD /* Model */,
 				277373432A5822C5002C86BD /* View */,
 				2773732F2A582259002C86BD /* Assets.xcassets */,
@@ -86,6 +85,7 @@
 		277373432A5822C5002C86BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2773732D2A582258002C86BD /* ContentView.swift */,
 				277373392A582298002C86BD /* StickerListView.swift */,
 				2773733B2A5822A0002C86BD /* StickerView.swift */,
 				2773733D2A5822A7002C86BD /* StickerAddView.swift */,
@@ -319,6 +319,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,6 +349,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

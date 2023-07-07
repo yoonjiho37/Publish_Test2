@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct StickerView: View {
+    
+    let sticker: Sticker
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text("\(sticker.memo)")
+                .font(.title)
+                .padding()
+        }
     }
 }
 
