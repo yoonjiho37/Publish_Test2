@@ -17,6 +17,14 @@ struct StickerView: View {
             Text("\(sticker.memo)")
                 .font(.title)
                 .padding()
+            
+            
+            HStack {
+                Spacer()
+                Text("\(sticker.dateString)")
+                    .font(.footnote)
+                    .padding()
+            }
         }
     }
 }
