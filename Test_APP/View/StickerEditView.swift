@@ -1,15 +1,17 @@
 //
-//  StickerAddView.swift
-//  Test_APP
+//  StickerEditView.swift
+//  Stickers
 //
-//  Created by 윤지호 on 2023/07/07.
+//  Created by Jongwook Park on 2023/07/07.
 //
 
 import SwiftUI
 
-struct StickerAddView: View {
+struct StickerEditView: View {
     var stickerStore: StickerStore
-    @Binding var isShowingAddSheet: Bool
+    @State var sticker: Sticker
+    
+    @Binding var isShowingEditSheet: Bool
     
     @State var selectedColor: Color = .cyan
     @State var memo: String = ""
@@ -17,9 +19,6 @@ struct StickerAddView: View {
     let colors: [Color] = [.cyan, .purple, .blue, .yellow, .brown]
     
     var body: some View {
-        // sheet로 올라온 View에는 보통
-        // 독립적인 NavagationStack을 두는 경우가 흔하다
-        // 그래야 타이틀도 보이고, 툴바버튼들도 보인다
         NavigationStack {
             VStack(alignment: .leading) {
                 Text("Select a color")
@@ -45,28 +44,35 @@ struct StickerAddView: View {
             }
             .padding()
             .listStyle(.plain)
-            .navigationTitle("Add a sticker")
+            .navigationTitle("Edit sticker")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        isShowingAddSheet = false
+                        isShowingEditSheet = false
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Submit") {
-                        stickerStore.addSticker(memo: memo, color: selectedColor)
-                        isShowingAddSheet = false
+                        sticker.color = selectedColor
+                        sticker.memo = memo
+                        sticker.date = Date()
+                        stickerStore.updateSticker(sticker)
+                        
+                        isShowingEditSheet = false
                     }
                 }
             }
+            .onAppear {
+                selectedColor = sticker.color
+                memo = sticker.memo
+            }
         }
+    }
 }
 
-struct StickerAddView_Previews: PreviewProvider {
+struct StickerEditView_Previews: PreviewProvider {
     static var previews: some View {
-        // 프리뷰에서 바인딩된 내용을 강제로 만들어 전달하려면
-        // .constant를 사용해야 한다
-        StickerAddView(stickerStore: StickerStore(), isShowingAddSheet: .constant(true))
+        StickerEditView(stickerStore: StickerStore(), sticker: Sticker(memo: "Good", date: Date()), isShowingEditSheet: .constant(true))
     }
 }
