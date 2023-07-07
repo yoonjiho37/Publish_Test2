@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class StickerStore: ObservableObject {
     @Published var stickers: [Sticker] = []

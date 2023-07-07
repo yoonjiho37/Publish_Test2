@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 struct Sticker: Codable, Identifiable {
     var id: UUID = UUID()

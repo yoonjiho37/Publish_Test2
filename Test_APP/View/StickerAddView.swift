@@ -61,12 +61,13 @@ struct StickerAddView: View {
                 }
             }
         }
-}
-
-struct StickerAddView_Previews: PreviewProvider {
-    static var previews: some View {
-        // 프리뷰에서 바인딩된 내용을 강제로 만들어 전달하려면
-        // .constant를 사용해야 한다
-        StickerAddView(stickerStore: StickerStore(), isShowingAddSheet: .constant(true))
     }
 }
+    struct StickerAddView_Previews: PreviewProvider {
+        static var previews: some View {
+            // 프리뷰에서 바인딩된 내용을 강제로 만들어 전달하려면
+            // .constant를 사용해야 한다
+            StickerAddView(stickerStore: StickerStore(), isShowingAddSheet: .constant(true))
+        }
+    }
+
