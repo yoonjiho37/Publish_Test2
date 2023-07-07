@@ -8,13 +8,41 @@
 import SwiftUI
 
 struct StickerView: View {
+    var stickerStore: StickerStore
+    let sticker: Sticker
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack {
+            VStack(alignment: .leading) {
+                Text("\(sticker.memo)")
+                    .font(.title)
+                    .padding()
+                
+                Text("\(sticker.dateString)")
+                    .font(.footnote)
+                    .padding()
+            }
+            Spacer()
+        }
+        .background(sticker.color)
+        .shadow(radius: 6)
+        .padding()
+        .contextMenu {
+            ShareLink(item: sticker.memo)
+            
+            Button {
+                stickerStore.removeSticker(sticker)
+            } label: {
+                Image(systemName: "trash.slash")
+                Text("Remove")
+            }
+        }
     }
 }
 
 struct StickerView_Previews: PreviewProvider {
     static var previews: some View {
-        StickerView()
+        StickerView(stickerStore: StickerStore(), sticker: Sticker(memo: "Hello", date: Date()))
     }
 }
